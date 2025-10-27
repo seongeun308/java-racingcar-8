@@ -2,6 +2,7 @@ package racingcar;
 
 import racingcar.domain.Car;
 import racingcar.parser.InputParser;
+import racingcar.util.CarUtils;
 import racingcar.validator.InputValidator;
 import racingcar.view.InputView;
 
@@ -36,7 +37,10 @@ public class Application {
                 .map(Car::new)
                 .toList();
 
-
+        cars.forEach(car -> {
+            int step = CarUtils.generateStep();
+            car.move(step);
+        });
     }
 
 }

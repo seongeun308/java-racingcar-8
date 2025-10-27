@@ -4,9 +4,16 @@ import java.util.Objects;
 
 public class Car {
     private final String name;
+    private int distance;
 
     public Car(String name) {
         this.name = name;
+    }
+
+    public void move(int step) {
+        if (step >= 4) {
+            this.distance += step;
+        }
     }
 
     @Override
