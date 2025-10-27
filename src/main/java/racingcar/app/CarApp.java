@@ -50,6 +50,17 @@ public class CarApp {
                 outputView.printMove(car.getName(), car.getDistance());
             });
         }
+
+        int maxDistance = cars.stream()
+                .mapToInt(Car::getDistance)
+                .max()
+                .orElse(0);
+
+        List<Car> winners = cars.stream()
+                .filter(car -> car.getDistance() == maxDistance)
+                .toList();
+
+        outputView.printWinner(winners);
     }
 
     private static List<Car> generateCars(String[] names) {
