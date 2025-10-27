@@ -5,6 +5,7 @@ import racingcar.parser.InputParser;
 import racingcar.util.CarUtils;
 import racingcar.validator.InputValidator;
 import racingcar.view.InputView;
+import racingcar.view.OutputView;
 
 import java.util.Arrays;
 import java.util.List;
@@ -14,11 +15,13 @@ public class CarApp {
     private final InputView inputView;
     private final InputValidator inputValidator;
     private final InputParser inputParser;
+    private final OutputView outputView;
 
-    public CarApp(InputView inputView, InputValidator inputValidator, InputParser inputParser) {
+    public CarApp(InputView inputView, InputValidator inputValidator, InputParser inputParser, OutputView outputView) {
         this.inputView = inputView;
         this.inputValidator = inputValidator;
         this.inputParser = inputParser;
+        this.outputView = outputView;
     }
 
     public void run() {
@@ -40,9 +43,11 @@ public class CarApp {
         List<Car> cars = generateCars(names);
 
         for (int i = 1; i <= round; i++) {
+            outputView.printRound(i);
             cars.forEach(car -> {
                 int step = CarUtils.generateStep();
                 car.move(step);
+                outputView.printMove(car.getName(), car.getDistance());
             });
         }
     }

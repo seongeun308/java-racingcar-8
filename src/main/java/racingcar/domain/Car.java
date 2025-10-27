@@ -12,7 +12,7 @@ public class Car {
 
     public void move(int step) {
         if (step >= 4) {
-            this.distance += step;
+            this.distance += 1;
         }
     }
 
@@ -27,5 +27,13 @@ public class Car {
     @Override
     public int hashCode() {
         return Objects.hashCode(name);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getDistance() {
+        return distance;
     }
 }
