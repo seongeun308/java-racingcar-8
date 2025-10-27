@@ -1,6 +1,9 @@
 package racingcar.validator;
 
+import java.util.Arrays;
+import java.util.Set;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 public class InputValidator {
     private static final String ALPHA_REGEX = "^[A-Za-z]+$";
@@ -52,6 +55,15 @@ public class InputValidator {
     public void validateLength(String input, int min, int max) {
         if (input == null || input.length() < min || input.length() > max) {
             throw new IllegalArgumentException("입력값의 길이가 범위를 벗어났습니다.");
+        }
+    }
+
+    public void validateUniqueNames(String[] names) {
+        Set<String> uniqueNames = Arrays.stream(names)
+                .collect(Collectors.toSet());
+
+        if (names.length != uniqueNames.size()) {
+            throw new IllegalArgumentException("입력값은 중복을 허용하지 않습니다.");
         }
     }
 }
