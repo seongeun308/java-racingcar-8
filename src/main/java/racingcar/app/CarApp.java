@@ -31,7 +31,7 @@ public class CarApp {
         inputValidator.validateNotBlank(namesInput);
         String[] names = inputParser.parseNames(namesInput);
 
-        inputValidator.validateRange(names.length, 1, 5);
+        inputValidator.validateRange(names.length, 2, 10);
         validateLengthNames(names);
         inputValidator.validateUniqueNames(names);
 
@@ -71,6 +71,6 @@ public class CarApp {
 
     private void validateLengthNames(String[] names) {
         Arrays.stream(names)
-                .forEach(input -> inputValidator.validateLength(input, 1, 10));
+                .forEach(input -> inputValidator.validateLength(input, 1, 5));
     }
 }
