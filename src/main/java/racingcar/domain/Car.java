@@ -10,10 +10,8 @@ public class Car {
         this.name = name;
     }
 
-    public void move(int step) {
-        if (step >= 4) {
-            this.distance += 1;
-        }
+    public void move() {
+        this.distance += 1;
     }
 
     @Override

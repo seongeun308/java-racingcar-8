@@ -1,6 +1,6 @@
 package racingcar;
 
-import racingcar.app.CarApp;
+import racingcar.app.CarGameApp;
 import racingcar.parser.InputParser;
 import racingcar.validator.InputValidator;
 import racingcar.view.InputView;
@@ -13,7 +13,7 @@ public class Application {
         InputParser inputParser = new InputParser();
         OutputView outputView = new OutputView();
 
-        CarApp carApp = new CarApp(inputView, inputValidator, inputParser, outputView);
-        carApp.run();
+        CarGameApp carGameApp = new CarGameApp(inputView, inputValidator, inputParser, outputView);
+        carGameApp.run();
     }
 }
